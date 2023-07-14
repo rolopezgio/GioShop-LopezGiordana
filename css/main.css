@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,300&family=PT+Sans+Narrow&family=Shadows+Into+Light&family=Ysabeau+Infant:ital,wght@1,500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul {
+list-style-type: none;
+} 
+li a {
+    text-decoration: none;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: #C5DAC1;
+}
+
+aside {
+    padding: 2rem;
+    padding-right: 0;
+    color: black;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.logo{
+    color: #6F686D;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 3rem;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.bi-hand-index-thumb-fill{ 
+transform: rotateZ(90deg);
+}
+
+.botonMenu{
+    background-color: transparent;
+    border: 0;
+    color: #6F686D;
+    font-size: 1.2rem;
+    font-family: 'Roboto Serif', serif;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 400;
+    padding: 1rem;
+}
+
+.botonMenu.active{
+    background-color: white;
+    color: #BEABBB;
+    width: 100%;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.botonCarrito{
+margin-top: 2rem;
+font-size: 1.2rem;
+}
+
+.botonVolver{
+    font-family: 'Roboto Serif', serif;
+    font-size: 1.2rem;
+}
+
+.numero{ 
+    background-color: white;
+    color: #6F686D;
+    padding: .15rem .25rem;
+    border-radius: .25rem;
+}
+
+.textoFooter{
+    color: #6F686D;
+    font-size: .85rem;
+}
+
+main{
+    background-color: white;
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 2rem;
+    padding: 3rem;
+}
+
+.tituloPrincipal{
+    color: #6F686D;
+    font-size: 1.5rem;
+    font-family: 'Roboto Serif', serif;
+    margin-bottom: 2rem;
+}
+
+.contenedorProductos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+ .productoImagen{
+    max-width: 100%;
+    border-radius: .5rem;
+}
+
+.producto{
+    border-radius: .5rem;
+}
+
+.productoDetalles{
+    background-color: #AB947E;
+    color: white;
+    padding: 1rem;
+    margin-top: -.5rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: .25rem;
+}
+ 
+.productoTitulo{
+    font-size: 1.2rem;
+}
+
+.productoAgregar{
+    border: 0;
+    padding: .4rem;
+    border-radius: .5rem;
+    color: #6F686D;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: background-color .2s, color .2s;
+}
+
+.productoAgregar:hover{
+    background-color: #AB947E;
+    color: white;
+}
+
+/**CARRITO**/
+.carritoVacio, .carritoComprado{
+color: #6F686D;
+}
+
+.contenedorCarrito{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.carritoProductos{
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+
+.carritoProducto{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #DDDDDD;
+    color: #6F686D;
+    border-radius: 1rem;
+    padding: .5rem;
+    padding-right: 1.5;
+}
+.carritoProductoImagen{
+width: 8rem;
+border-radius: 1rem;
+}
+
+.carritoProductoEliminar{
+    border: 0;
+    background-color: transparent;
+    color: #d41212;
+    cursor: pointer;
+}
+
+.carritoAcciones{
+    display: flex;
+    justify-content: space-between;
+}
+
+.carritoAccionesVaciar{
+    border: 0;
+    background-color: #DDDDDD;
+    color: #6F686D;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.carritoAccionesComprar{
+    border: 0;
+    background-color: #E0D3DE;
+    color: #6F686D;
+    padding: 1rem;
+    border-top-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+    cursor: pointer;
+}
+
+.carritoAccionesDer{
+    display: flex;
+}
+
+.carritoAccionesTotal{
+    display: flex;
+    background-color: #DDDDDD;
+    color: #6F686D;
+    padding: 1rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    gap: 1rem;
+}
+
+.disabled{
+display: none;
+}
