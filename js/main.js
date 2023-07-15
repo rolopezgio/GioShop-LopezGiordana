@@ -60,66 +60,56 @@ function cargarProductos() {
         `;
         contenedorProductos.append(div);
     })
+
+    let botonesAgregar = document.querySelectorAll(".productoAgregar");
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener("click", agregarAlCarrito); 
+    })
 }
 
-const carrito = [];
+let productosEnCarrito;
+
+let productosEnCarritoLS = localStorage.getItem("productos-en-carrito");
+
+if (productosEnCarritoLS) {
+productosEnCarrito = JSON.parse(productosEnCarritoLS);
+// actualizarNumerito(); NO FUNCIONA
+} else {
+productosEnCarrito = [];
+}
+
+const peoductosEnCarrito = [];
+
 function agregarAlCarrito(e) {
-    const idProducto = e.currentTarget.id;
-    const productoEncontrado = productos.find(producto => producto.id === idProducto);
-    if (carrito.some(producto => producto.id === idProducto)) {
-        const index = carrito.findIndex(producto => producto.id === idProducto);
-        carrito[index].cantidad++;
+    const idBoton = e.currentTarget.id;
+    const productoEncontrado = productos.find(producto => producto.id === idBoton);
+
+    if (peoductosEnCarrito.some(producto => producto.id === idBoton)) {
+        const index = peoductosEnCarrito.findIndex(producto => producto.id === idBoton);
+        peoductosEnCarrito[index].cantidad++;
     } else {
         productoEncontrado.cantidad = 1;
-        carrito.push(productoEncontrado);
+        peoductosEnCarrito.push(productoEncontrado);
     }
     actualizarCarrito();
     actualizarNumerito();
 
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
+    localStorage.setItem("productos-en-carrito", JSON.stringify(peoductosEnCarrito))
 }
 
 function actualizarCarrito() {
     const carritoContainer = document.querySelector("#carrito");
-    carrito.forEach(producto => {
+    carritoContainer.innerHTML = "";
+    peoductosEnCarrito.forEach(producto => {
         const div = document.createElement("div");
-        div.classList.add("productoCarrito");
-        div.innerHTML = `
-        <img class="carritoProductoImagen" src="${producto.imagen}" alt="imagenAuriculares">
-                        <div class="carritoProductoTitulo">
-                            <small>Título</small>
-                            <h3>${producto.titulo}</h3>
-                        </div>
-                        <div class="carritoProductoCantidad">
-                            <small>Cantidad</small>
-                            <p>1</p> //hacer que cambie la cantidad//
-                        </div>
-                        <div class="carritoProductoPrecio">
-                            <small>Precio</small>
-                            <p>$${producto.precio}</p>
-                        </div>
-                        <div class="carritoProductoSubtotal">
-                            <small>Subtotal</small>
-                            <p>$1000</p>
-                        </div>
-                        <button class="carritoProductoEliminar"><i class="bi bi-trash"></i></button>
-        `;
-        carritoContainer.append(div);
-    });
-}
-
-function agregarProductos() {
-    let botonesAgregar = document.querySelectorAll(".productoAgregar");
-    botonesAgregar.forEach(boton => {
-        boton.addEventListener("click", agregarAlCarrito); //no funciona el boton agregar al carrito
+        div.classList.add("productoCarrito");       
     });
 }
 
 cargarProductos();
-agregarProductos();
 
 function actualizarNumerito(){
-    let nuevoNumerito = carrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+    let nuevoNumerito = peoductosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
     numerito.innerText = nuevoNumerito;
 }
 
