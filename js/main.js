@@ -71,7 +71,6 @@ let productosEnCarrito;
 
 let productosEnCarritoLS = localStorage.getItem("productos-en-carrito");
 
-// const peoductosEnCarrito = [];
 
 if (productosEnCarritoLS) {
 productosEnCarrito = JSON.parse(productosEnCarritoLS);
@@ -85,7 +84,7 @@ function agregarAlCarrito(e) {
     const productoEncontrado = productos.find(producto => producto.id === idBoton);
 
     if (productosEnCarrito.some(producto => producto.id === idBoton)) {
-        const index = peoductosEnCarrito.findIndex(producto => producto.id === idBoton);
+        const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
         productosEnCarrito[index].cantidad++;
     } else {
         productoEncontrado.cantidad = 1;
