@@ -1,0 +1,44 @@
+[
+    {
+        "id": "airpods",
+        "titulo": "Airpods",
+        "imagen": "./img/auriculares.jpg",
+        "precio": 1000
+    },
+    {
+        "id": "bicicleta",
+        "titulo": "Bicicleta",
+        "imagen": "./img/bicicleta.jpg",
+        "precio": 1000
+    },
+    {
+        "id": "celular",
+        "titulo": "Celular",
+        "imagen": "./img/celular.jpg",
+        "precio": 1000
+    },
+    {
+        "id": "computadora",
+        "titulo": "Computadora",
+        "imagen": "./img/computadora.jpg",
+        "precio": 1000
+    },
+    {
+        "id": "tablet",
+        "titulo": "Tablet",
+        "imagen": "./img/tablet.jpg",
+        "precio": 1000
+    },
+    {
+        "id": "televisor",
+        "titulo": "Televisor",
+        "imagen": "./img/televisor.jpg",
+        "precio": 1000
+    },
+    {
+        "id": "tostadora",
+        "titulo": "Tostadora",
+        "imagen": "./img/tostadora.jpg",
+        "precio": 1000
+    }
+]

@@ -1,47 +1,10 @@
-const productos = [
-    {
-        id: "airpods",
-        titulo: "Airpods",
-        imagen: "./img/auriculares.jpg",
-        precio: 1000,
-    },
-    {
-        id: "bicicleta",
-        titulo: "Bicicleta",
-        imagen: "./img/bicicleta.jpg",
-        precio: 1000,
-    },
-    {
-        id: "celular",
-        titulo: "Celular",
-        imagen: "./img/celular.jpg",
-        precio: 1000,
-    },
-    {
-        id: "computadora",
-        titulo: "Computadora",
-        imagen: "./img/computadora.jpg",
-        precio: 1000,
-    },
-    {
-        id: "tablet",
-        titulo: "Tablet",
-        imagen: "./img/tablet.jpg",
-        precio: 1000,
-    },
-    {
-        id: "televisor",
-        titulo: "Televisor",
-        imagen: "./img/televisor.jpg",
-        precio: 1000,
-    },
-    {
-        id: "tostadora",
-        titulo: "Tostadora",
-        imagen: "./img/tostadora.jpg",
-        precio: 1000,
-    }
-];
+let productos = [];
+fetch ("./js/productos.json")
+    .then (response => response.json())
+    .then (data => {
+        productos = data;
+        cargarProductos(productos);
+    }); 
 
 const contenedorProductos = document.querySelector("#contenedorProductos");
 const numerito = document.querySelector("#numerito");
@@ -80,6 +43,27 @@ productosEnCarrito = [];
 }
 
 function agregarAlCarrito(e) {
+
+    Toastify({
+        text: "Producto agregado",
+        duration: 3000,
+        close: false,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+          background: "#AB947E",
+          borderRadius: '.5rem',
+          textTransform: "uppercase",
+          fontSize: '.75rem',
+        },
+        offset: {
+            x: '1.5rem',
+            y: '1.5rem'
+          },
+        onClick: function(){}
+      }).showToast();
+
     const idBoton = e.currentTarget.id;
     const productoEncontrado = productos.find(producto => producto.id === idBoton);
 
@@ -104,8 +88,6 @@ function actualizarCarrito() {
         div.classList.add("productoCarrito");       
     });
 }
-
-cargarProductos();
 
 function actualizarNumerito(){
     let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
